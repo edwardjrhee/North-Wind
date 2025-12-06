@@ -1278,25 +1278,23 @@
   <div class="page">
     <!-- HEADER -->
     <header>
-      <div class="brand">
-        <div class="brand-mark">EJR</div>
-        <div class="brand-text">
-          <div class="brand-title">Edward J. Rhee</div>
-          <div class="brand-subtitle">Self-Growth in Motion</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#journey">Journey</a>
-        <a href="#pillars">Pillars</a>
-        <a href="#experience">Experience</a>
-        <a href="#gallery">Lifestyle</a>
-        <a href="#journal" class="nav-cta">Journal</a>
-        <button type="button" class="theme-toggle" id="themeToggle">
-          <span class="icon" id="themeIcon">☀️</span>
-          <span id="themeLabel">Day drive</span>
-        </button>
-      </nav>
-    </header>
+  <div class="brand">
+    <!-- Logo-only: EJR in the circle -->
+    <div class="brand-mark">EJR</div>
+  </div>
+  <nav>
+    <a href="#journey">Journey</a>
+    <a href="#pillars">Pillars</a>
+    <a href="#experience">Experience</a>
+    <a href="#gallery">Lifestyle</a>
+    <a href="#journal" class="nav-cta">Journal</a>
+    <button type="button" class="theme-toggle" id="themeToggle">
+      <span class="icon" id="themeIcon">☀️</span>
+      <span id="themeLabel">Day drive</span>
+    </button>
+  </nav>
+</header>
+
 
     <!-- HERO -->
     <section class="hero">

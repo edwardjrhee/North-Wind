@@ -73,9 +73,10 @@
     }
 
     .page {
-      max-width: 1120px;
+      width: 100%;
+      max-width: 1400px;  /* wider than before */
       margin: 0 auto;
-      padding: 24px 18px 64px;
+      padding: 24px 32px 64px; /* more content, less blank edges */
     }
 
     /* HEADER */
@@ -104,8 +105,8 @@
     }
 
     .brand-mark {
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background:
         conic-gradient(from 210deg, #fdf5e4, var(--accent), #9c7a40, #fdf5e4);
@@ -122,25 +123,6 @@
 
     body[data-theme="night"] .brand-mark {
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-subtitle {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
     }
 
     nav {
@@ -1274,27 +1256,27 @@
     }
   </style>
 </head>
-<body data-theme="day">
+<body id="top" data-theme="day">
   <div class="page">
     <!-- HEADER -->
     <header>
-  <div class="brand">
-    <!-- Logo-only: EJR in the circle -->
-    <div class="brand-mark">EJR</div>
-  </div>
-  <nav>
-    <a href="#journey">Journey</a>
-    <a href="#pillars">Pillars</a>
-    <a href="#experience">Experience</a>
-    <a href="#gallery">Lifestyle</a>
-    <a href="#journal" class="nav-cta">Journal</a>
-    <button type="button" class="theme-toggle" id="themeToggle">
-      <span class="icon" id="themeIcon">☀️</span>
-      <span id="themeLabel">Day drive</span>
-    </button>
-  </nav>
-</header>
-
+      <div class="brand">
+        <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+          <div class="brand-mark">EJR</div>
+        </a>
+      </div>
+      <nav>
+        <a href="#journey">Journey</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Lifestyle</a>
+        <a href="#journal" class="nav-cta">Journal</a>
+        <button type="button" class="theme-toggle" id="themeToggle">
+          <span class="icon" id="themeIcon">☀️</span>
+          <span id="themeLabel">Day drive</span>
+        </button>
+      </nav>
+    </header>
 
     <!-- HERO -->
     <section class="hero">
@@ -1888,7 +1870,6 @@
       const icon = document.getElementById('themeIcon');
       const label = document.getElementById('themeLabel');
 
-      // Load stored preference
       try {
         const stored = window.localStorage.getItem('ejr-theme');
         if (stored === 'night') {
@@ -1896,9 +1877,7 @@
           icon.textContent = '🌙';
           label.textContent = 'Night drive';
         }
-      } catch (e) {
-        // ignore localStorage errors
-      }
+      } catch (e) {}
 
       toggle.addEventListener('click', () => {
         const current = body.getAttribute('data-theme') || 'day';
@@ -1944,7 +1923,7 @@
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
           const key = tab.getAttribute('data-page');
-          const label = tab.innerText.trim(); // text without HTML syntax
+          const label = tab.innerText.trim();
           setActive(key, label);
         });
       });
@@ -1957,7 +1936,6 @@
         const output = document.getElementById(valueId);
         if (!slider || !output) return;
 
-        // Load saved value if any
         try {
           const saved = window.localStorage.getItem(storageKey);
           if (saved !== null) {
@@ -1965,7 +1943,6 @@
           }
         } catch (e) {}
 
-        // Initial display
         output.textContent = slider.value + unit;
 
         slider.addEventListener('input', () => {
